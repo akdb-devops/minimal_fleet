@@ -1,0 +1,7 @@
+defaultNamespace: managed-services
+
+helm:
+  takeOwnership: true
+  releaseName: mailpit-security
+  chart: oci://harbor.infra.k8s.akdb.net/infrastruktur/helm-charts/neuvector-securityrules
+  version: 2.3.3
