@@ -1,0 +1,20 @@
+defaultNamespace: managed-services
+
+helm:
+  takeOwnership: true
+  releaseName: mailpit
+  chart: oci://harbor.infra.k8s.akdb.net/infrastruktur/helm-charts/mailpit
+  version: 0.18.6
+  values:
+    global:
+      imageRegistry: harbor.infra.k8s.akdb.net/hub.docker.com
+    ingress:
+      enabled: false # not enabled by default
+
+targetCustomizations:
+- clusterName: rev
+  helm:
+    values:
+      ingress:
+        enabled: true
+        hostname: mailpit.rev.k8s.akdb.net
