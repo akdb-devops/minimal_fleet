@@ -5,3 +5,12 @@ helm:
   releaseName: mailpit-security
   chart: oci://harbor.infra.k8s.akdb.net/infrastruktur/helm-charts/neuvector-securityrules
   version: 2.3.3
+
+targetCustomizations:
+- clusterName: egov-rev
+  helm:
+    values:
+      rulesModifier:
+        mailpit.managed-services:
+          additionalIngress:
+          - name: nv.mailpit.managed-services-ingress-4
